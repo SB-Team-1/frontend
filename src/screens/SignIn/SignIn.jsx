@@ -1,8 +1,16 @@
-import { Button, TextField } from "@material-ui/core";
+import { Button, makeStyles, TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { loginUser } from "../../services/auth";
 
+const useStyles = makeStyles((theme) => ({
+  form: {
+    padding: "10vh",
+  },
+}));
+
 export default function SignIn(props) {
+  const { handleLogin } = props;
+  const classes = useStyles();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -17,12 +25,17 @@ export default function SignIn(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const resp = loginUser(formData);
+    const resp = handleLogin(formData);
     console.log(resp);
   };
   return (
     <div>
-      <form noValidate autoComplete="on" onSubmit={(e) => handleSubmit(e)}>
+      <form
+        className={classes.form}
+        noValidate
+        autoComplete="on"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <TextField
           className="login-input"
           variant="filled"

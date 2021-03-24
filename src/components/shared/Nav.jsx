@@ -32,7 +32,7 @@ export default function Nav({ currentUser, handleLogout }) {
       <Logo />
       {currentUser ? (
         <>
-          <div>Hi! {currentUser.firstname}</div>
+          <div>Hi {currentUser.firstname}!</div>
           <Button onClick={handleLogout}>Logout</Button>
         </>
       ) : null}
