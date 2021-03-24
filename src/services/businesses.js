@@ -26,6 +26,6 @@ export const getBusiness = async (id) => {
 
 //show all businesses
 export const showBusinesses = async () => {
-  const resp = await api.get("/businesess");
+  const resp = await api.get("/businesses");
   return resp.data;
 };
