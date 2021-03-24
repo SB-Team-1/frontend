@@ -1,4 +1,4 @@
-import { AppBar, Button, makeStyles, MenuItem } from "@material-ui/core";
+import { AppBar, makeStyles, MenuItem } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     color: theme.palette.primary.contrastText,
   },
-  actionItems: {
+  menuItems: {
     display: "flex",
     flexFlow: "row wrap",
   },
@@ -25,24 +25,45 @@ const useStyles = makeStyles((theme) => ({
 export default function Nav({ currentUser, handleLogout }) {
   const classes = useStyles();
 
-  const menuOptions = <></>;
+  const LoggedOutOptions = (
+    <>
+      <Link to="/alliances" className={classes.link}>
+        <MenuItem>Alliances</MenuItem>
+      </Link>
+      <Link to="/businesses" className={classes.link}>
+        <MenuItem>Local Businesses</MenuItem>
+      </Link>
+      <Link className={classes.link} to="/sign-in">
+        <MenuItem>Sign In</MenuItem>
+      </Link>
+      <Link className={classes.link} to="/sign-up">
+        <MenuItem>Sign Up</MenuItem>
+      </Link>
+    </>
+  );
+
+  const LoggedInOptions = (
+    <>
+      <Link to="/alliances" className={classes.link}>
+        <MenuItem>Alliances</MenuItem>
+      </Link>
+      <Link to="/businesses" className={classes.link}>
+        <MenuItem>Local Businesses</MenuItem>
+      </Link>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
+    </>
+  );
 
   return (
     <AppBar className={classes.appBar}>
       <Logo />
       {currentUser ? (
         <>
-          <div>Hi {currentUser.firstname}!</div>
-          <Button onClick={handleLogout}>Logout</Button>
+          <div>Hi {currentUser.email}!</div>
         </>
       ) : null}
-      <div className={classes.actionItems}>
-        <Link to="/alliances" className={classes.link}>
-          <MenuItem>Alliances</MenuItem>
-        </Link>
-        <Link to="/businesses" className={classes.link}>
-          <MenuItem>Local Businesses</MenuItem>
-        </Link>
+      <div className={classes.menuItems}>
+        {currentUser ? LoggedInOptions : LoggedOutOptions}
       </div>
     </AppBar>
   );
