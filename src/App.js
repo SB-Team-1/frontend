@@ -1,7 +1,9 @@
-import { Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Switch, useHistory } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./screens/LandingPage/LandingPage";
 import SignIn from "./screens/SignIn/SignIn";
+import SignUp from "./screens/SignUp/SignUp";
 import BusinessesContainer from "./containers/BusinessesContainer/BusinessesContainer";
 import AlliancesContainer from "./containers/AlliancesContainer/AlliancesContainer";
 import {
@@ -11,9 +13,12 @@ import {
   removeToken,
 } from "./services/auth";
 import Layout from "./components/shared/Layout";
+import { theme } from "./styles/materialUItheme";
+import { ThemeProvider } from "@material-ui/core";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     const handleVerify = async () => {
@@ -44,25 +49,27 @@ function App() {
 
   return (
     <div className="App">
-      <Layout handleLogout={handleLogout} currentUser={currentUser}>
-        <Switch>
-          <Route path="/businesses">
-            <BusinessesContainer />
-          </Route>
-          <Route path="/alliances">
-            <AlliancesContainer />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn handleLogin={handleLogin} />
-          </Route>
-          <Route path="/sign-up">
-            <SignUp handleRegister={handleRegister} />
-          </Route>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-        </Switch>
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Layout handleLogout={handleLogout} currentUser={currentUser}>
+          <Switch>
+            <Route path="/businesses">
+              <BusinessesContainer />
+            </Route>
+            <Route path="/alliances">
+              <AlliancesContainer />
+            </Route>
+            <Route path="/sign-in">
+              <SignIn handleLogin={handleLogin} />
+            </Route>
+            <Route path="/sign-up">
+              <SignUp handleRegister={handleRegister} />
+            </Route>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+          </Switch>
+        </Layout>
+      </ThemeProvider>
     </div>
   );
 }

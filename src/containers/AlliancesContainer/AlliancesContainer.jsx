@@ -1,8 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import AllianceIndex from "./screens/AllianceIndex";
-import AllianceProfile from "./screens/AllianceProfile";
+import AllianceCreate from "../../screens/AllianceCreate/AllianceCreate";
+import AllianceEdit from "../../screens/AllianceEdit/AllianceEdit";
+import AllianceIndex from "../../screens/AllianceIndex/AllianceIndex";
+import AllianceProfile from "../../screens/AllianceProfile/AllianceProfile";
 
 export default function AlliancesContainer() {
   const [alliances, setAlliances] = useState([]);
