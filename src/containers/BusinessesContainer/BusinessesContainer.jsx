@@ -1,8 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Switch, Route } from "react-router";
+import BusinessCreate from "../../screens/BusinessCreate/BusinessCreate";
+import BusinessIndex from "../../screens/BusinessIndex/BusinessIndex";
+import BusinessProfile from "../../screens/BusinessProfile/BusinessProfile";
 import SignIn from "../../screens/SignIn/SignIn";
-import BusinessIndex from "./screens/BusinessIndex";
-import BusinessProfile from "./screens/BusinessProfile";
 
 export default function BusinessesContainer() {
   const [businesses, setBusinesses] = useState([]);
