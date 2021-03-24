@@ -25,7 +25,7 @@ export const getAlliance = async (id) => {
 };
 
 //show all alliances
-export const showAlliancees = async () => {
+export const showAlliances = async () => {
   const resp = await api.get("/alliance");
   return resp.data;
 };
