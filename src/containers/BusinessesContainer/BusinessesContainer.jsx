@@ -37,20 +37,20 @@ export default function BusinessesContainer({ handleLogin, currentUser }) {
 
   return (
     <Switch>
-      <Route path="/businesses">
-        <BusinessIndex businesses={businesses} />
-      </Route>
-      <Route path="/businesses/:id">
-        <BusinessProfile />
-      </Route>
       <Route path="/businesses/:id/edit">
         <BusinessEdit handleUpdate={handleUpdate} />
       </Route>
       <Route path="/businesses/create">
-        <BusinessCreate handleCreate={handleCreate} />
+        <BusinessCreate handleCreate={handleCreate} currentUser={currentUser} />
+      </Route>
+      <Route path="/businesses/:id">
+        <BusinessProfile />
       </Route>
       <Route path="/businesses/sign-in">
         <SignIn />
+      </Route>
+      <Route path="/businesses">
+        <BusinessIndex businesses={businesses} />
       </Route>
     </Switch>
   );

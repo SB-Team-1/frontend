@@ -2,8 +2,9 @@ import api from "./apiconfig";
 
 export const loginUser = async (loginData) => {
   const resp = await api.post("/sign-in/", { credentials: loginData });
-  localStorage.setItem("authToken", resp.data.token);
-  api.defaults.headers.common.authorization = `Token ${resp.data.token}`;
+  console.log(resp);
+  localStorage.setItem("authToken", resp.data.user.token);
+  api.defaults.headers.common.authorization = `Token ${resp.data.user.token}`;
   return resp.data.user;
 };
 
@@ -11,8 +12,8 @@ export const registerUser = async (registerData) => {
   const resp = await api.post("/sign-up/", {
     credentials: registerData,
   });
-  localStorage.setItem("authToken", resp.data.token);
-  api.defaults.headers.common.authorization = `Token ${resp.data.token}`;
+  // localStorage.setItem("authToken", resp.data.token);
+  // api.defaults.headers.common.authorization = `Token ${resp.data.token}`;
   return resp.data.user;
 };
 
