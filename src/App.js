@@ -53,7 +53,10 @@ function App() {
         <Layout handleLogout={handleLogout} currentUser={currentUser}>
           <Switch>
             <Route path="/businesses">
-              <BusinessesContainer />
+              <BusinessesContainer
+                handleLogin={handleLogin}
+                currentUser={currentUser}
+              />
             </Route>
             <Route path="/alliances">
               <AlliancesContainer />
