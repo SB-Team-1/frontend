@@ -30,7 +30,7 @@ export default function BusinessCreate(props) {
     logo_url: "",
     email: "",
     category: "",
-    user: currentUser ? currentUser._id : "",
+    user: currentUser ? currentUser.id : "",
   });
 
   const handleSubmit = (e) => {

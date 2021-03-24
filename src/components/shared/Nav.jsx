@@ -50,6 +50,9 @@ export default function Nav({ currentUser, handleLogout }) {
       <Link to="/businesses" className={classes.link}>
         <MenuItem>Local Businesses</MenuItem>
       </Link>
+      <Link to="/businesses/create" className={classes.link}>
+        <MenuItem>Create A Business</MenuItem>
+      </Link>
       <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </>
   );
