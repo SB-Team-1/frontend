@@ -8,7 +8,7 @@ import {
   FormControl,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import MainButton from "../../components/Buttons/MainButtonSmall"
+import MainButton from "../../components/Buttons/MainButtonSmall";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,12 +29,13 @@ export default function BusinessCreate(props) {
   const { currentUser, handleCreate } = props;
   const [formData, setFormData] = useState({
     description: "",
-    website: "",
+    website_url: "",
     name: "",
     address: "",
     phone_number: "",
     logo_url: "",
-    email: "",
+    // email: "",
+    alliance_id: null,
     category: "",
     user_id: currentUser ? currentUser.id : "",
   });
@@ -83,9 +84,9 @@ export default function BusinessCreate(props) {
           className={classes.input}
           variant="filled"
           label="Website"
-          name="website"
+          name="website_url"
           required
-          value={formData.website}
+          value={formData.website_url}
           onChange={handleChange}
           color="primary"
         />
