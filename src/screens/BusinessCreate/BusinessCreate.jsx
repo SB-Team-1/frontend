@@ -35,7 +35,7 @@ export default function BusinessCreate(props) {
     phone_number: "",
     logo_url: "",
     // email: "",
-    alliance_id: null,
+    alliance: "",
     category: "",
     user_id: currentUser ? currentUser.id : "",
   });
