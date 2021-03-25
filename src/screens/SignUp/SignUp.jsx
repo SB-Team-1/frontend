@@ -4,6 +4,8 @@ import React, { useState } from "react";
 const useStyles = makeStyles(() => ({
   form: {
     padding: "10vh",
+    display: "flex",
+    flexFlow: "column wrap",
   },
 }));
 

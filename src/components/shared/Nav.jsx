@@ -54,6 +54,11 @@ export default function Nav({ currentUser, handleLogout }) {
         <MenuItem>Create A Business</MenuItem>
       </Link>
       <MenuItem onClick={handleLogout}>Logout</MenuItem>
+      {currentUser && currentUser.business ? (
+        <Link>
+          <MenuItem>Create an Alliance</MenuItem>
+        </Link>
+      ) : null}
     </>
   );
 

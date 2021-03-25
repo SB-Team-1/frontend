@@ -29,3 +29,7 @@ export const showBusinesses = async () => {
   const resp = await api.get("/business");
   return resp.data;
 };
+
+export const getUserBusiness = async () => {
+  const resp = await api.get()
+}

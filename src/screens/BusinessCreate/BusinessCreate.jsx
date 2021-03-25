@@ -14,7 +14,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "10vh",
   },
-  form: { display: "flex", flexFlow: "column wrap" },
+  form: {
+    display: "flex",
+    flexFlow: "column wrap",
+    width: "50vw",
+    margin: "0 auto",
+  },
   input: {},
 }));
 
