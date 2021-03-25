@@ -44,7 +44,7 @@ export default function BusinessesContainer({ handleLogin, currentUser }) {
         <BusinessCreate handleCreate={handleCreate} currentUser={currentUser} />
       </Route>
       <Route path="/businesses/:id">
-        <BusinessProfile />
+        <BusinessProfile businesses={businesses} />
       </Route>
       <Route path="/businesses/sign-in">
         <SignIn />
