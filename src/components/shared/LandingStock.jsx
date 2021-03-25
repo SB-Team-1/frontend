@@ -3,16 +3,16 @@ import landingstock from "./images/landingstock.jpeg";
 
 export default function LandingStock() {
   return (
-    <div>
-      <img
-        src={landingstock}
-        alt="local market"
-        style={{
-          height: "35vh",
-          width: "120%",
-          objectFit: "cover",
-        }}
-      />
-    </div>
+      <div>
+        <img
+          src={landingstock}
+          alt="local market"
+          style={{
+            height: "35vh",
+            width: "120%",
+            objectFit: "cover"
+          }}
+        />
+      </div>
   );
 }

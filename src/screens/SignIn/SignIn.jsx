@@ -24,8 +24,7 @@ export default function SignIn(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const resp = handleLogin(formData);
-    console.log(resp);
+    handleLogin(formData);
   };
   return (
     <div>
