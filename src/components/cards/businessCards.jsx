@@ -5,8 +5,8 @@ import {
   CardContent,
   CardActions,
   Typography,
-  Button,
 } from "@material-ui/core";
+import MainButtonSmall from "../Buttons/MainButtonSmall"
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,9 +47,9 @@ export default function BusinessIndexCards(props) {
           to={`/businesses/${business.id}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <Button size="small" color="primary">
+          <MainButtonSmall>
             Learn More
-          </Button>
+          </MainButtonSmall>
         </Link>
       </CardActions>
     </Card>
