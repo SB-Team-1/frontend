@@ -3,6 +3,7 @@ import { withStyles, Button } from "@material-ui/core";
 const MainButtonSmall = withStyles({
   root: {
     background: '#822840',
+    margin: "2px 3px",
     borderRadius: '100vh',
     color: '#F5F4F6',
     fontSize: ".6rem",
