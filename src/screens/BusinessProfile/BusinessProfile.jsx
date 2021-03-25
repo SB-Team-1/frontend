@@ -1,7 +1,8 @@
 import { React, Fragment, useState, useEffect } from "react";
-import { makeStyles, Button } from "@material-ui/core";
+import { makeStyles} from "@material-ui/core";
 import { Link, useParams } from "react-router-dom";
 import { getBusiness } from "../../services/businesses";
+import MainButtonSmall from "../../components/Buttons/MainButtonSmall"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,10 +42,10 @@ export default function BusinessProfile({ businesses, currentUser }) {
           {currentUser.id === business.user_id ? (
             <>
               <Link className={classes.linkButton} to="/alliances">
-                <Button>Join an Alliance</Button>
+                <MainButtonSmall>Join an Alliance</MainButtonSmall>
               </Link>
               <Link className={classes.linkButton} to="/alliances/create">
-                <Button>Create an Alliance</Button>
+                <MainButtonSmall>Create an Alliance</MainButtonSmall>
               </Link>
             </>
           ) : null}
