@@ -6,7 +6,7 @@ const MainButton = withStyles({
     margin: "2px 3px",
     borderRadius: '100vh',
     color: '#F5F4F6',
-    fontSize: "1rem",
+    fontSize: "1.5rem",
     height: 40,
     padding: '0 17px',
     "&:hover": {
