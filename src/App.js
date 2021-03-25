@@ -73,7 +73,10 @@ function App() {
               />
             </Route>
             <Route path="/alliances">
-              <AlliancesContainer />
+              <AlliancesContainer
+                userBusinesses={userBusinesses}
+                currentUser={currentUser}
+              />
             </Route>
             <Route path="/sign-in">
               <SignIn handleLogin={handleLogin} />

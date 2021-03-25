@@ -40,7 +40,7 @@ export default function AllianceCard({ alliance }) {
       </CardContent>
       <CardActions>
         <Link
-          to={`/alliance/${alliance.id}`}
+          to={`/alliances/${alliance.id}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <Button size="small" color="primary">
