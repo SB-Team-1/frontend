@@ -1,5 +1,5 @@
 import { React, Fragment, useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Button } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { getBusiness } from "../../services/businesses";
 
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BusinessProfile({ businesses }) {
+export default function BusinessProfile({ businesses, currentUser }) {
   const params = useParams();
   const [business, setBusiness] = useState();
   useEffect(() => {
@@ -31,6 +31,12 @@ export default function BusinessProfile({ businesses }) {
           <p>{business.website}</p>
           {business.alliance ? <p>Our Alliance: {business.alliance}</p> : ''}
           <p>About us: {business.description}</p>
+          {currentUser.id === business.user_id ? (
+            <>
+              <Button>Join an Alliance</Button>
+              <Button>Create an Alliance</Button>
+            </>
+          ) : null}
         </span>
       ) : (
         <div>Loading...</div>

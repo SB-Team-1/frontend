@@ -12,7 +12,11 @@ import {
   updateBusiness,
 } from "../../services/businesses";
 
-export default function BusinessesContainer({ handleLogin, currentUser }) {
+export default function BusinessesContainer({
+  handleLogin,
+  currentUser,
+  userBusinesses,
+}) {
   const [businesses, setBusinesses] = useState([]);
 
   //businesses api calls, functions state is kept here
@@ -44,13 +48,16 @@ export default function BusinessesContainer({ handleLogin, currentUser }) {
         <BusinessCreate handleCreate={handleCreate} currentUser={currentUser} />
       </Route>
       <Route path="/businesses/:id">
-        <BusinessProfile businesses={businesses} />
+        <BusinessProfile businesses={businesses} currentUser={currentUser} />
       </Route>
       <Route path="/businesses/sign-in">
         <SignIn />
       </Route>
       <Route path="/businesses">
-        <BusinessIndex businesses={businesses} />
+        <BusinessIndex
+          businesses={businesses}
+          userBusinesses={userBusinesses}
+        />
       </Route>
     </Switch>
   );
