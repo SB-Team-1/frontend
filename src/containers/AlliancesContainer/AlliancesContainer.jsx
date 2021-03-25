@@ -2,14 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import AllianceCreate from "../../screens/AllianceCreate/AllianceCreate";
-import AllianceEdit from "../../screens/AllianceEdit/AllianceEdit";
+// import AllianceEdit from "../../screens/AllianceEdit/AllianceEdit";
 import AllianceIndex from "../../screens/AllianceIndex/AllianceIndex";
 import AllianceProfile from "../../screens/AllianceProfile/AllianceProfile";
 import {
   createAlliance,
   joinAlliance,
   showAlliances,
-  updateAlliance,
+  // updateAlliance,
 } from "../../services/alliances";
 
 export default function AlliancesContainer({ userBusinesses }) {
@@ -31,10 +31,10 @@ export default function AlliancesContainer({ userBusinesses }) {
     return resp;
   };
 
-  const handleUpdate = async (id, data) => {
-    const resp = await updateAlliance(id, data);
-    return resp;
-  };
+  // const handleUpdate = async (id, data) => {
+  //   const resp = await updateAlliance(id, data);
+  //   return resp;
+  // };
 
   const handleJoin = async (allianceId) => {
     const resp = await joinAlliance(userBusinesses[0].id, allianceId);

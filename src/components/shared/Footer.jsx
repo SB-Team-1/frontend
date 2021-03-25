@@ -8,7 +8,11 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: "#046582",
     color: "white",
+<<<<<<< HEAD
+    height: "15vh",
+=======
     height: "11vh",
+>>>>>>> 42899b9ce848f77c8481c68d8f9331de7b2526f3
     display: "flex",
     flexFlow: "row wrap",
     alignItems: "center",
