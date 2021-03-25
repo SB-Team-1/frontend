@@ -64,12 +64,14 @@ export default function Nav({ currentUser, handleLogout }) {
 
   return (
     <AppBar className={classes.appBar}>
-      <Link to="/" className={classes.link}>
-        <MenuItem>Home</MenuItem>
-      </Link>
-      <Link to="/about" className={classes.link}>
-        <MenuItem>About</MenuItem>
-      </Link>
+      <div className={classes.menuItems}>
+        <Link to="/" className={classes.link}>
+          <MenuItem>Home</MenuItem>
+        </Link>
+        <Link to="/about" className={classes.link}>
+          <MenuItem>About</MenuItem>
+        </Link>
+      </div>
       <Logo />
       {/* {currentUser ? (
         <>
