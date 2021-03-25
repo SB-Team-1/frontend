@@ -16,6 +16,7 @@ import { getUserBusinesses } from "./services/businesses";
 import Layout from "./components/shared/Layout";
 import { theme } from "./styles/materialUItheme";
 import { ThemeProvider } from "@material-ui/core";
+import About from "./screens/About/About";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -77,6 +78,9 @@ function App() {
                 userBusinesses={userBusinesses}
                 currentUser={currentUser}
               />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
             <Route path="/sign-in">
               <SignIn handleLogin={handleLogin} />
