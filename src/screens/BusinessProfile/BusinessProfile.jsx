@@ -26,11 +26,9 @@ export default function BusinessProfile({ businesses, currentUser }) {
       setBusiness(resp);
     };
     fetchBusiness();
-  }, []);
+  }, [params.id]);
 
   const classes = useStyles();
-
-  console.log(business);
 
   return (
     <div className={classes.root}>
@@ -38,7 +36,7 @@ export default function BusinessProfile({ businesses, currentUser }) {
         <span className={classes.name}>
           <h2>{business.name}</h2>
           <p>{business.website}</p>
-          <p>Our Alliance: {business.alliance}</p>
+          {business.alliance ? <p>Our Alliance: {business.alliance}</p> : ''}
           <p>About us: {business.description}</p>
           {currentUser.id === business.user_id ? (
             <>
