@@ -30,6 +30,7 @@ export const showBusinesses = async () => {
   return resp.data;
 };
 
-export const getUserBusiness = async () => {
-  const resp = await api.get()
-}
+export const getUserBusinesses = async (id) => {
+  const resp = await api.get(`/users/${id}/businesses`);
+  return resp.data;
+};

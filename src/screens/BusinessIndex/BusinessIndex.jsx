@@ -1,12 +1,31 @@
+import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import BusinessIndexCards from "../../components/cards/businessCards";
 
-export default function BusinessIndex({ businesses }) {
+const useStyles = makeStyles((theme) => ({
+  root: { paddingTop: "10vh" },
+}));
+
+export default function BusinessIndex({ businesses, userBusinesses }) {
+  const classes = useStyles();
   return (
-    <div>
-      {businesses.map((business) => (
-        <BusinessIndexCards business={business} />
-      ))}
+    <div className={classes.root}>
+      {userBusinesses ? (
+        <>
+          <Typography>Your Businesses</Typography>
+          {userBusinesses.map((business) => (
+            <BusinessIndexCards business={business} />
+          ))}
+        </>
+      ) : null}
+      {
+        <>
+          <Typography>All Businesses</Typography>
+          {businesses.map((business) => (
+            <BusinessIndexCards business={business} />
+          ))}
+        </>
+      }
     </div>
   );
 }
