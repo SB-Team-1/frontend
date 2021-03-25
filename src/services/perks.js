@@ -2,7 +2,7 @@ import api from "./apiconfig";
 
 //Create a new perk
 export const createPerk = async (data, allianceId) => {
-  const resp = await api.post("/perks-create/", {
+  const resp = await api.post("/perks", {
     perk: { ...data, alliance_id: allianceId },
   });
   return resp.data;
@@ -10,13 +10,13 @@ export const createPerk = async (data, allianceId) => {
 
 //Edit a business
 export const updatePerk = async (id, data) => {
-  const resp = await api.patch(`/perks-edit/${id}/`, { perk: data });
+  const resp = await api.patch(`/perks/${id}`, { perk: data });
   return resp.data;
 };
 
 //Delete a business
 export const deletePerk = async (id) => {
-  const resp = await api.delete(`/perks/${id}/`);
+  const resp = await api.delete(`/perks/${id}`);
   return resp;
 };
 
