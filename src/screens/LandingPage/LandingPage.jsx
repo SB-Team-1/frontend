@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import LandingStock from "../../components/shared/LandingStock.jsx"
+import LandingStock from "../../components/shared/LandingStock.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
