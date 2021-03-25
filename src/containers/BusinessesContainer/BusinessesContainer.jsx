@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route, useHistory } from "react-router";
 import BusinessCreate from "../../screens/BusinessCreate/BusinessCreate";
 import BusinessEdit from "../../screens/BusinessEdit/BusinessEdit";
 import BusinessIndex from "../../screens/BusinessIndex/BusinessIndex";
@@ -18,6 +18,7 @@ export default function BusinessesContainer({
   userBusinesses,
 }) {
   const [businesses, setBusinesses] = useState([]);
+  const history = useHistory();
 
   //businesses api calls, functions state is kept here
 
@@ -31,6 +32,7 @@ export default function BusinessesContainer({
 
   const handleCreate = async (data) => {
     const resp = await createBusiness(data);
+    history.push("/businesses");
     return resp;
   };
 
