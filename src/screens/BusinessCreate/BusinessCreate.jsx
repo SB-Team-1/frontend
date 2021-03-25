@@ -14,7 +14,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "10vh",
   },
-  form: { display: "flex", flexFlow: "column wrap" },
+  form: {
+    display: "flex",
+    flexFlow: "column wrap",
+    width: "50vw",
+    margin: "0 auto",
+  },
   input: {},
 }));
 
@@ -30,7 +35,7 @@ export default function BusinessCreate(props) {
     logo_url: "",
     email: "",
     category: "",
-    user: currentUser ? currentUser._id : "",
+    user: currentUser ? currentUser.id : "",
   });
 
   const handleSubmit = (e) => {
