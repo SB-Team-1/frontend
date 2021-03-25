@@ -1,18 +1,19 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import LandingStock from "../../components/shared/LandingStock.jsx"
+import LandingStock from "../../components/shared/LandingStock.jsx";
 
 const useStyles = makeStyles((theme) => ({
-  pic: {
-    display: "flex",
-    paddingTop: "7vh",
-  },
+  root: { paddingTop: "7vh" },
+  pic: {},
 }));
 
 export default function LandingPage() {
   const classes = useStyles();
 
   return (
-      <LandingStock className={classes.pic} />
+    <div className={classes.root}>
+      <LandingStock />
+      <div>Hello</div>
+    </div>
   );
 }
