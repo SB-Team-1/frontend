@@ -1,6 +1,5 @@
 import { Button, makeStyles, TextField } from "@material-ui/core";
 import React, { useState } from "react";
-import { loginUser } from "../../services/auth";
 
 const useStyles = makeStyles((theme) => ({
   form: {

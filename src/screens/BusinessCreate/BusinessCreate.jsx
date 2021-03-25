@@ -118,7 +118,9 @@ export default function BusinessCreate(props) {
             labelId="select-label"
           >
             {categoryOptions.map((option) => (
-              <MenuItem value={option}>{option}</MenuItem>
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AllianceCreate(props) {
   const classes = useStyles();
-  const { currentUser, handleCreate } = props;
+  const { handleCreate } = props;
   const [formData, setFormData] = useState({
     name: "",
     location: "",
