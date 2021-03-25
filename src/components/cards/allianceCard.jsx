@@ -37,7 +37,7 @@ export default function AllianceCard({ alliance }) {
         </Typography>
       </CardContent>
         <Link
-          to={`/alliance/${alliance.id}`}
+          to={`/alliances/${alliance.id}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <MainButtonSmall size="small" color="primary">

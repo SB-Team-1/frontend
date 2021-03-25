@@ -29,3 +29,8 @@ export const showAlliances = async () => {
   const resp = await api.get("/alliances");
   return resp.data;
 };
+
+export const joinAlliance = async (businessId, allianceId) => {
+  const resp = await api.post(`/join/${businessId}/${allianceId}`);
+  return resp;
+};

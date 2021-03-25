@@ -7,11 +7,12 @@ import AllianceIndex from "../../screens/AllianceIndex/AllianceIndex";
 import AllianceProfile from "../../screens/AllianceProfile/AllianceProfile";
 import {
   createAlliance,
+  joinAlliance,
   showAlliances,
   updateAlliance,
 } from "../../services/alliances";
 
-export default function AlliancesContainer() {
+export default function AlliancesContainer({ userBusinesses }) {
   const [alliances, setAlliances] = useState([]);
   const history = useHistory();
 
@@ -34,16 +35,21 @@ export default function AlliancesContainer() {
     const resp = await updateAlliance(id, data);
     return resp;
   };
+
+  const handleJoin = async (allianceId) => {
+    const resp = await joinAlliance(userBusinesses[0].id, allianceId);
+    return resp;
+  };
   return (
     <Switch>
-      <Route path="/alliances/:id/edit">
+      {/* <Route path="/alliances/:id/edit">
         <AllianceEdit handleUpdate={handleUpdate} />
-      </Route>
+      </Route> */}
       <Route path="/alliances/create">
         <AllianceCreate handleCreate={handleCreate} />
       </Route>
       <Route path="/alliances/:id">
-        <AllianceProfile alliances={alliances} />
+        <AllianceProfile alliances={alliances} handleJoin={handleJoin} />
       </Route>
       <Route path="/alliances">
         <AllianceIndex alliances={alliances} />

@@ -6,7 +6,8 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: "#C4C4C4",
+    backgroundColor: "#046582",
+    color: "white",
     height: "20vh",
     display: "flex",
     flexFlow: "row wrap",
