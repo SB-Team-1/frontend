@@ -41,11 +41,15 @@ export default function AllianceProfile(props) {
         <span className={classes.name}>
           <h2>{alliance.name}</h2>
           <p>Location: {alliance.location}</p>
+          <p>{alliance.slogan}</p>
+          <p>{alliance.description}</p>
+
           <Link className={classes.linkButton} to="/alliances">
             <MainButtonSmall onClick={() => handleJoin(alliance.id)}>
               Join this Alliance
             </MainButtonSmall>
           </Link>
+          <div>{alliance.businesses}</div>
         </span>
       ) : (
         <div>Loading...</div>
