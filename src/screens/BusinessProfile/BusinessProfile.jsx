@@ -1,11 +1,24 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 
-export default function BusinessProfile(props) {
-  const { businesses } = props;
-  const params = useParams();
+import { React, Fragment } from "react";
+import { makeStyles } from '@material-ui/core'
 
-  // const business = businesses.filter((item) => item._id === params.id);
+const useStyles = makeStyles((theme) => ({
+  name: {
+    fontHeight: '4rem',
+    fontWeight: 'bold'
+  },
+}));
 
-  return <div></div>;
+export default function BusinessProfile(business) {
+  const classes = useStyles()
+  return (
+    <Fragment>
+      <span className={classes.name}>
+        <h2>{business.name}</h2>
+        <p>{business.website}</p>
+        <p>Our Alliance: {business.alliance}</p>
+        <p>About us: {business.description}</p>
+      </span>
+    </Fragment>
+    )
 }
