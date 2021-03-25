@@ -1,5 +1,6 @@
-import { Button, makeStyles, TextField } from "@material-ui/core";
+import { makeStyles, TextField } from "@material-ui/core";
 import React, { useState } from "react";
+import MainButton from "../../components/Buttons/MainButtonSmall";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,8 @@ export default function AllianceCreate(props) {
   const [formData, setFormData] = useState({
     name: "",
     location: "",
+    slogan: "",
+    description: "",
   });
 
   const handleSubmit = (e) => {
@@ -59,7 +62,27 @@ export default function AllianceCreate(props) {
           onChange={handleChange}
           color="primary"
         />
-        <Button type="submit">Create</Button>
+        <TextField
+          className={classes.input}
+          variant="filled"
+          label="Slogan"
+          name="slogan"
+          required
+          value={formData.slogan}
+          onChange={handleChange}
+          color="primary"
+        />
+        <TextField
+          className={classes.input}
+          variant="filled"
+          label="Description"
+          name="description"
+          required
+          value={formData.description}
+          onChange={handleChange}
+          color="primary"
+        />
+        <MainButton type="submit">Create</MainButton>
       </form>
     </div>
   );

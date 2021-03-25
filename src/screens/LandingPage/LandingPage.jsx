@@ -1,12 +1,10 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
+import LandingStock from "../../components/shared/LandingStock.jsx";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    paddingTop: "10vh",
-  },
+  root: { paddingTop: "7vh" },
+  pic: {},
 }));
 
 export default function LandingPage() {
@@ -14,8 +12,8 @@ export default function LandingPage() {
 
   return (
     <div className={classes.root}>
-      <Link to="/sign-up">Sign Up as User</Link>
-      {/* <Link to="/businesses/create">Sign Up as Business</Link> */}
+      <LandingStock />
+      <div>Hello</div>
     </div>
   );
 }

@@ -3,27 +3,22 @@ import {
   makeStyles,
   Card,
   CardContent,
-  CardActions,
   Typography,
-  Button,
 } from "@material-ui/core";
+import MainButtonSmall from "../Buttons/MainButtonSmall"
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
+    minWidth: "400px",
+    maxWidth: "700px",
     marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
+    marginRight: "auto",
+    marginTop: "40px"
   },
+  name: {
+    fontWeight: "bold"
+  }
 }));
 
 export default function AllianceCard({ alliance }) {
@@ -31,23 +26,24 @@ export default function AllianceCard({ alliance }) {
   return (
     <Card key={alliance.id} className={classes.root}>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h3">
+        <Typography gutterBottom variant="h5" component="h3" className={classes.name}>
           {alliance.name}
+        </Typography>
+        <Typography variant="body2" component="p">
+          {alliance.location}
         </Typography>
         <Typography variant="body2" component="p">
           {alliance.description}
         </Typography>
       </CardContent>
-      <CardActions>
         <Link
-          to={`/alliance/${alliance.id}`}
+          to={`/alliances/${alliance.id}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
+          <MainButtonSmall size="small" color="primary">
+            Explore Alliance
+          </MainButtonSmall>
         </Link>
-      </CardActions>
     </Card>
   );
 }

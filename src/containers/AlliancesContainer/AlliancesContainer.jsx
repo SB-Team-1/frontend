@@ -2,16 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import AllianceCreate from "../../screens/AllianceCreate/AllianceCreate";
-import AllianceEdit from "../../screens/AllianceEdit/AllianceEdit";
+// import AllianceEdit from "../../screens/AllianceEdit/AllianceEdit";
 import AllianceIndex from "../../screens/AllianceIndex/AllianceIndex";
 import AllianceProfile from "../../screens/AllianceProfile/AllianceProfile";
 import {
   createAlliance,
+  joinAlliance,
   showAlliances,
-  updateAlliance,
+  // updateAlliance,
 } from "../../services/alliances";
 
-export default function AlliancesContainer() {
+export default function AlliancesContainer({ userBusinesses }) {
   const [alliances, setAlliances] = useState([]);
   const history = useHistory();
 
@@ -30,20 +31,25 @@ export default function AlliancesContainer() {
     return resp;
   };
 
-  const handleUpdate = async (id, data) => {
-    const resp = await updateAlliance(id, data);
+  // const handleUpdate = async (id, data) => {
+  //   const resp = await updateAlliance(id, data);
+  //   return resp;
+  // };
+
+  const handleJoin = async (allianceId) => {
+    const resp = await joinAlliance(userBusinesses[0].id, allianceId);
     return resp;
   };
   return (
     <Switch>
-      <Route path="/alliances/:id/edit">
+      {/* <Route path="/alliances/:id/edit">
         <AllianceEdit handleUpdate={handleUpdate} />
-      </Route>
+      </Route> */}
       <Route path="/alliances/create">
         <AllianceCreate handleCreate={handleCreate} />
       </Route>
       <Route path="/alliances/:id">
-        <AllianceProfile alliances={alliances} />
+        <AllianceProfile alliances={alliances} handleJoin={handleJoin} />
       </Route>
       <Route path="/alliances">
         <AllianceIndex alliances={alliances} />

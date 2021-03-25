@@ -4,6 +4,16 @@ import BusinessIndexCards from "../../components/cards/businessCards";
 
 const useStyles = makeStyles((theme) => ({
   root: { paddingTop: "10vh", paddingBottom: "25vh" },
+  layout: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "flex-start"
+  },
+  title: {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    marginTop: "15px"
+  }
 }));
 
 export default function BusinessIndex({ businesses, userBusinesses }) {
@@ -12,18 +22,22 @@ export default function BusinessIndex({ businesses, userBusinesses }) {
     <div className={classes.root}>
       {userBusinesses ? (
         <>
-          <Typography>Your Businesses</Typography>
-          {userBusinesses.map((business) => (
-            <BusinessIndexCards key={business.id} business={business} />
-          ))}
+          <Typography className={classes.title}>Your Businesses</Typography>
+          <div  className={classes.layout}>
+            {userBusinesses.map((business) => (
+              <BusinessIndexCards key={business.id} business={business}/>
+            ))}
+          </div>
         </>
       ) : null}
       {
         <>
-          <Typography>All Businesses</Typography>
-          {businesses.map((business) => (
-            <BusinessIndexCards key={business.id} business={business} />
-          ))}
+          <Typography className={classes.title}>All Businesses</Typography>
+          <div  className={classes.layout}>
+            {businesses.map((business) => (
+              <BusinessIndexCards key={business.id} business={business} />
+            ))}
+          </div>
         </>
       }
     </div>

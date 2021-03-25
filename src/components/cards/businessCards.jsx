@@ -3,7 +3,6 @@ import {
   makeStyles,
   Card,
   CardContent,
-  CardActions,
   Typography,
 } from "@material-ui/core";
 import MainButtonSmall from "../Buttons/MainButtonSmall"
@@ -11,19 +10,15 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
+    minWidth: "400px",
+    maxWidth: "700px",
     marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
+    marginRight: "auto",
+    marginTop: "40px"
   },
+  name: {
+    fontWeight: "bold"
+  }
 }));
 
 export default function BusinessIndexCards(props) {
@@ -32,7 +27,7 @@ export default function BusinessIndexCards(props) {
   return (
     <Card key={business.id} className={classes.root}>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h3">
+        <Typography gutterBottom variant="h5" component="h3" className={classes.name}>
           {business.name}
         </Typography>
         <Typography variant="body2" component="p">
@@ -42,7 +37,6 @@ export default function BusinessIndexCards(props) {
           {business.description}
         </Typography>
       </CardContent>
-      <CardActions>
         <Link
           to={`/businesses/${business.id}`}
           style={{ textDecoration: "none", color: "inherit" }}
@@ -51,7 +45,6 @@ export default function BusinessIndexCards(props) {
             Learn More
           </MainButtonSmall>
         </Link>
-      </CardActions>
     </Card>
   );
 }
