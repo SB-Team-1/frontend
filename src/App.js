@@ -12,12 +12,15 @@ import {
   registerUser,
   removeToken,
 } from "./services/auth";
+import { getUserBusinesses } from "./services/businesses";
 import Layout from "./components/shared/Layout";
 import { theme } from "./styles/materialUItheme";
 import { ThemeProvider } from "@material-ui/core";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [userBusinesses, setUserBusinesses] = useState([]);
+  const [userAlliances, setUserAlliances] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -27,6 +30,16 @@ function App() {
     };
     handleVerify();
   }, []);
+
+  useEffect(() => {
+    const fetchUserBusinesses = async () => {
+      const resp = await getUserBusinesses(currentUser.id);
+      setUserBusinesses(resp);
+    };
+    if (currentUser) {
+      fetchUserBusinesses();
+    }
+  }, [currentUser]);
 
   const handleLogin = async (loginData) => {
     const userData = await loginUser(loginData);
@@ -56,6 +69,7 @@ function App() {
               <BusinessesContainer
                 handleLogin={handleLogin}
                 currentUser={currentUser}
+                userBusinesses={userBusinesses}
               />
             </Route>
             <Route path="/alliances">
