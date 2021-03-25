@@ -19,11 +19,9 @@ export default function BusinessProfile({ businesses }) {
       setBusiness(resp);
     };
     fetchBusiness();
-  }, []);
+  }, [params.id]);
 
   const classes = useStyles();
-
-  console.log(business);
 
   return (
     <Fragment>
@@ -31,7 +29,7 @@ export default function BusinessProfile({ businesses }) {
         <span className={classes.name}>
           <h2>{business.name}</h2>
           <p>{business.website}</p>
-          <p>Our Alliance: {business.alliance}</p>
+          {business.alliance ? <p>Our Alliance: {business.alliance}</p> : ''}
           <p>About us: {business.description}</p>
         </span>
       ) : (
