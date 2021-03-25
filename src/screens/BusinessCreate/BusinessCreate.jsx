@@ -1,5 +1,4 @@
 import {
-  Button,
   makeStyles,
   TextField,
   Select,
@@ -9,6 +8,7 @@ import {
   FormControl,
 } from "@material-ui/core";
 import React, { useState } from "react";
+import MainButton from "../../components/Buttons/MainButtonSmall"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -154,7 +154,7 @@ export default function BusinessCreate(props) {
           onChange={handleChange}
           color="primary"
         />
-        <Button type="submit">Submit</Button>
+        <MainButton type="submit">Submit</MainButton>
       </form>
     </div>
   );
