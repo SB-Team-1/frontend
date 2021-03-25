@@ -13,19 +13,10 @@ export default function BusinessProfile(business) {
   return (
     <Fragment>
       <span className={classes.name}>
-        <h2>
-          {business.name}
-        </h2>
-        <p>
-         {business.website}
-        </p>
-        <p>
-          About us: {business.description}
-        </p>
-        <p>
-          Our Alliance: {business.alliance}
-        </p>
-
+        <h2>{business.name}</h2>
+        <p>{business.website}</p>
+        <p>Our Alliance: {business.alliance}</p>
+        <p>About us: {business.description}</p>
       </span>
     </Fragment>
     )
