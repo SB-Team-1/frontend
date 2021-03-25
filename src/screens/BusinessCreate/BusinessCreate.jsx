@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "25vh",
   },
   form: {
+    marginTop: "2vh",
     display: "flex",
     flexFlow: "column wrap",
     width: "50vw",
