@@ -20,7 +20,7 @@ export default function BusinessIndex({ businesses, userBusinesses }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {userBusinesses ? (
+      {userBusinesses.length ? (
         <>
           <Typography className={classes.title}>Your Businesses</Typography>
           <div  className={classes.layout}>
