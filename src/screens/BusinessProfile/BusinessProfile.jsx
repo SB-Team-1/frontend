@@ -26,7 +26,7 @@ export default function BusinessProfile({ businesses, currentUser }) {
       setBusiness(resp);
     };
     fetchBusiness();
-  }, []);
+  }, [params.id]);
 
   const classes = useStyles();
 

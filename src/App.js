@@ -20,7 +20,7 @@ import { ThemeProvider } from "@material-ui/core";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [userBusinesses, setUserBusinesses] = useState([]);
-  const [userAlliances, setUserAlliances] = useState([]);
+  // const [userAlliances, setUserAlliances] = useState([]);
   const history = useHistory();
 
   useEffect(() => {

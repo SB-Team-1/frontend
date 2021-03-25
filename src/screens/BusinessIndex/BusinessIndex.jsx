@@ -14,7 +14,7 @@ export default function BusinessIndex({ businesses, userBusinesses }) {
         <>
           <Typography>Your Businesses</Typography>
           {userBusinesses.map((business) => (
-            <BusinessIndexCards business={business} />
+            <BusinessIndexCards key={business.id} business={business} />
           ))}
         </>
       ) : null}
@@ -22,7 +22,7 @@ export default function BusinessIndex({ businesses, userBusinesses }) {
         <>
           <Typography>All Businesses</Typography>
           {businesses.map((business) => (
-            <BusinessIndexCards business={business} />
+            <BusinessIndexCards key={business.id} business={business} />
           ))}
         </>
       }
