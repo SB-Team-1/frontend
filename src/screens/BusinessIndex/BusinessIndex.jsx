@@ -3,7 +3,7 @@ import React from "react";
 import BusinessIndexCards from "../../components/cards/businessCards";
 
 const useStyles = makeStyles((theme) => ({
-  root: { paddingTop: "10vh" },
+  root: { paddingTop: "10vh", paddingBottom: "25vh" },
 }));
 
 export default function BusinessIndex({ businesses, userBusinesses }) {

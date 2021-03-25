@@ -13,6 +13,7 @@ import React, { useState } from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "10vh",
+    paddingBottom: "25vh",
   },
   form: {
     display: "flex",

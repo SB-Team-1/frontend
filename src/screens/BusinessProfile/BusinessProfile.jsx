@@ -1,12 +1,19 @@
 import { React, Fragment, useState, useEffect } from "react";
 import { makeStyles, Button } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getBusiness } from "../../services/businesses";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    paddingTop: "10vh",
+  },
   name: {
     fontHeight: "4rem",
     fontWeight: "bold",
+  },
+  linkButton: {
+    textDecoration: "none",
+    color: theme.palette.primary.contrastText,
   },
 }));
 
@@ -26,7 +33,7 @@ export default function BusinessProfile({ businesses, currentUser }) {
   console.log(business);
 
   return (
-    <Fragment>
+    <div className={classes.root}>
       {business ? (
         <span className={classes.name}>
           <h2>{business.name}</h2>
@@ -35,14 +42,18 @@ export default function BusinessProfile({ businesses, currentUser }) {
           <p>About us: {business.description}</p>
           {currentUser.id === business.user_id ? (
             <>
-              <Button>Join an Alliance</Button>
-              <Button>Create an Alliance</Button>
+              <Link className={classes.linkButton} to="/alliances">
+                <Button>Join an Alliance</Button>
+              </Link>
+              <Link className={classes.linkButton} to="/alliances/create">
+                <Button>Create an Alliance</Button>
+              </Link>
             </>
           ) : null}
         </span>
       ) : (
         <div>Loading...</div>
       )}
-    </Fragment>
+    </div>
   );
 }
