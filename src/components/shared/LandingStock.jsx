@@ -9,7 +9,7 @@ export default function LandingStock() {
           alt="local market"
           style={{
             height: "35vh",
-            width: "120%",
+            width: "100vw",
             objectFit: "cover"
           }}
         />
